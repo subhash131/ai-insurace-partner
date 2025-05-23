@@ -17,7 +17,7 @@ const Sidebar = () => {
             <div className="size-6 rounded-full bg-[#EBF3FC] flex items-center justify-center text-[#75AFF1] pt-1">
               H
             </div>
-            <p>Family Health Insurance</p>
+            <p className="text-nowrap">Family Plans</p>
           </button>
           <button className="flex items-center gap-2 cursor-pointer">
             <div className="size-6 rounded-full bg-[#FDF1E3] flex items-center justify-center text-[#fea16b] pt-1">
