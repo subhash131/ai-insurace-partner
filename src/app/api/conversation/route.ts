@@ -1,11 +1,8 @@
 import { connectToDatabase } from "@/db/connection";
 import Conversation from "@/models/Conversation";
-import { connect } from "http2";
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async (req: NextRequest) => {
-  return NextResponse.json({});
-};
+
 
 export const POST = async (req: NextRequest) => {
   const body = await req.json();
