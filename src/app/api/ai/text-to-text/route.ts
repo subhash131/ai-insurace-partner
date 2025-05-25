@@ -7,13 +7,14 @@ type AiMessage = {
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  console.log("Received body:", body);
   const { instructions, chat } = body;
-  console.log("Received instructions:", instructions);
-  console.log("Received chat:", chat);
+  // console.log("Received instructions:", instructions);
+  // console.log("Received chat:", chat);
 
-  return NextResponse.json(await fetchGroqResponse({ instructions, chat }));
-  // return NextResponse.json({ instructions, chat });
+  const res = await fetchGroqResponse({ instructions, chat });
+  console.log("::: res :::", res);
+
+  return NextResponse.json(res);
 }
 
 async function fetchGroqResponse({
@@ -37,19 +38,14 @@ async function fetchGroqResponse({
 
   const body = {
     model: "llama-3.3-70b-versatile",
-    messages: [
-      {
-        role: "system",
-        content:
-          "Your name is Ayushi and you are a health insurance expert. You help users with their queries in a friendly, humorous, and empathetic way. You are highly knowledgeable and explain complex topics simply. You always give clear, concise, and to-the-point answers. You use examples when helpful, avoid rambling, and focus on delivering practical advice, recommendations, or tips quickly and effectively. Always keep your answers short and respectful, people usually do not have time to read long paragraphs.",
-      },
-      ...instructions,
-      ...chat,
-    ],
+    messages: [...instructions, ...chat],
   };
 
+  console.log("::: body :::", body);
+
+  // return body;
+
   try {
-    // return body;
     const response = await fetch(endpoint, {
       method: "POST",
       headers,
