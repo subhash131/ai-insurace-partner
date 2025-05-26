@@ -21,8 +21,8 @@ export const POST = async (req: NextRequest) => {
     const BASE_URL =
       process.env.BASE_URL || "https://ai-insurace-partner.vercel.app";
 
+    console.log("BASE_URL ::", BASE_URL);
     if (!BASE_URL) {
-      console.log("BASE_URL ::", BASE_URL);
       return NextResponse.json(
         "BASE_URL is not defined. Please set the BASE_URL environment variable.",
         { status: 500 }

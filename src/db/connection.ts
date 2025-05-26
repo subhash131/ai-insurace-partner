@@ -1,8 +1,6 @@
 import mongoose, { Mongoose } from "mongoose";
 
-const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  "mongodb+srv://admin:admin@cluster0.qlwvtfx.mongodb.net/AI-Insurance";
+const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   throw new Error(
