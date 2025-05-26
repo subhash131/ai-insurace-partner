@@ -26,6 +26,12 @@ export async function connectToDatabase(): Promise<Mongoose> {
     return cached.conn;
   }
 
+  if (!MONGODB_URI) {
+    throw new Error(
+      "Please define the MONGODB_URI environment variable in .env.local"
+    );
+  }
+
   if (!cached.promise) {
     cached.promise = mongoose.connect(MONGODB_URI, {
       bufferCommands: false,
