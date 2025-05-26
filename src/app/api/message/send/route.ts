@@ -18,7 +18,8 @@ export const POST = async (req: NextRequest) => {
       return NextResponse.json("Invalid userId", { status: 400 });
     }
 
-    const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
+    const BASE_URL =
+      process.env.BASE_URL || "https://ai-insurace-partner.vercel.app";
 
     if (!BASE_URL) {
       console.log("BASE_URL ::", BASE_URL);
