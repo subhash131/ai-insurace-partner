@@ -29,7 +29,7 @@ const messageSchema: Schema<IMessage> = new Schema(
     },
     sender: {
       type: String,
-      enum: ["user", "assistant"],
+      enum: ["user", "assistant", "system"],
       required: true,
     },
     message: {
