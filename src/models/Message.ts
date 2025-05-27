@@ -3,7 +3,7 @@ import mongoose, { Document, Schema, Model } from "mongoose";
 export interface IMessage extends Document {
   conversationId: mongoose.Types.ObjectId;
   userId?: mongoose.Types.ObjectId | null;
-  sender: "user" | "assistant";
+  sender: "user" | "assistant" | "system";
   message: string;
   metadata?: {
     model?: string;

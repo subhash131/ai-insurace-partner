@@ -48,7 +48,7 @@ export const POST = async (req: NextRequest) => {
     const response = await fetch(`${BASE_URL}/api/ai/text-to-text`, {
       body: JSON.stringify({
         instructions: [...instructions, ...userData],
-        chat: [...history, { role: "user", content: message }],
+        chat: [...history, { role: sender, content: message }],
       }),
       method: "POST",
       headers: { "Content-Type": "application/json" },
