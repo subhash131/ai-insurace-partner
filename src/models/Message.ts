@@ -10,6 +10,7 @@ export interface IMessage extends Document {
     tokensUsed?: number;
     responseTimeMs?: number;
   };
+  renderOnUI: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -35,6 +36,10 @@ const messageSchema: Schema<IMessage> = new Schema(
     message: {
       type: String,
       required: true,
+    },
+    renderOnUI: {
+      type: Boolean,
+      default: true,
     },
     metadata: {
       model: { type: String },

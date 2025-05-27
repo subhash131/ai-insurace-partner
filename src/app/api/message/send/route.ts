@@ -12,6 +12,7 @@ export const POST = async (req: NextRequest) => {
       conversationId,
       userData,
       sender,
+      renderOnUI,
     } = await req.json();
 
     if (!message) {
@@ -43,6 +44,7 @@ export const POST = async (req: NextRequest) => {
       userId,
       sender,
       message,
+      renderOnUI,
     });
 
     const response = await fetch(`${BASE_URL}/api/ai/text-to-text`, {
