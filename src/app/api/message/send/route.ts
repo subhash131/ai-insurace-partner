@@ -4,8 +4,15 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest) => {
   try {
-    const { message, history, instructions, userId, conversationId, userData } =
-      await req.json();
+    const {
+      message,
+      history,
+      instructions,
+      userId,
+      conversationId,
+      userData,
+      sender,
+    } = await req.json();
 
     if (!message) {
       return NextResponse.json("Invalid messages format", { status: 400 });
@@ -34,7 +41,7 @@ export const POST = async (req: NextRequest) => {
     await Message.create({
       conversationId,
       userId,
-      sender: "user",
+      sender,
       message,
     });
 
