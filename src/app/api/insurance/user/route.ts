@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
     minEligibleAge: { $lte: user.age },
     maxEligibleAge: { $gte: user.age },
     minIncomeRequired: { $lte: user.annualIncome },
-    coverageType: user.preferredCoverageType,
+    // coverageType: user.preferredCoverageType,
   });
   return NextResponse.json(matchingPlans);
 }
