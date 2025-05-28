@@ -5,6 +5,7 @@ export interface IMessage extends Document {
   userId?: mongoose.Types.ObjectId | null;
   sender: "user" | "assistant" | "system";
   message: string;
+  type?: string;
   metadata?: {
     model?: string;
     tokensUsed?: number;
@@ -32,6 +33,10 @@ const messageSchema: Schema<IMessage> = new Schema(
       type: String,
       enum: ["user", "assistant", "system"],
       required: true,
+    },
+    type: {
+      type: String,
+      default: "text",
     },
     message: {
       type: String,
